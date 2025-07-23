@@ -1,0 +1,17 @@
+.chat-messages-container{
+  margin-top: 10px;
+  flex-grow: 1;
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}  
+.welcome-messages-container{
+  margin-top: 10px;
+  flex-grow: 1;
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
