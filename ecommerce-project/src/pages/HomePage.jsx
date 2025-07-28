@@ -3,12 +3,13 @@ import { useEffect, useState } from 'react'
 import { Header } from '../components/Header.jsx'
 import CheckMark from '../assets/images/icons/checkmark.png'
 import axios from 'axios'
+import { formatMoney } from '../utils/money.js'
 
 
-export function HomePage({cart}) {
+export function HomePage({ cart }) {
 
     const [products, setProducts] = useState([])
-    
+
 
     useEffect(() => {
         axios.get('/api/products')
@@ -23,7 +24,7 @@ export function HomePage({cart}) {
             <title>Ecommerce Project</title>
             <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
 
-            <Header cart={cart}/>
+            <Header cart={cart} />
             <div className="home-page">
                 <div className="products-grid">
 
@@ -48,7 +49,7 @@ export function HomePage({cart}) {
                                 </div>
 
                                 <div className="product-price">
-                                    ${(product.priceCents / 100).toFixed(2)}
+                                    ${formatMoney(product.priceCents)}
                                 </div>
 
                                 <div className="product-quantity-container">
