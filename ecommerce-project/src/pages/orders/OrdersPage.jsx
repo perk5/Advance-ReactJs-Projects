@@ -1,10 +1,10 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import './OrdersPage.css'
-import { Header } from '../components/Header'
-import BuyAgain from '../assets/images/icons/buy-again.png'
+import { Header } from '../../components/Header.jsx'
+import BuyAgain from '../../assets/images/icons/buy-again.png'
 import dayjs from 'dayjs'
-import { formatMoney } from '../utils/money.js'
+import { formatMoney } from '../../utils/money.js'
 
 import { Link } from 'react-router'
 
