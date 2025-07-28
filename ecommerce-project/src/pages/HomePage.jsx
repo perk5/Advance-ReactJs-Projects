@@ -2,9 +2,15 @@ import './HomePage.css'
 import { Header } from '../components/Header.jsx'
 import CheckMark from '../assets/images/icons/checkmark.png'
 import { products } from '../../starting-code/data/products.js'
+import axios from 'axios'
 
-console.log(products)
+
 export function HomePage() {
+
+    axios.get('http://localhost:3000/api/products')
+        .then((respose) => {
+            console.log(respose.data)
+        })
 
     return (
         <>
@@ -29,7 +35,7 @@ export function HomePage() {
 
                                 <div className="product-rating-container">
                                     <img className="product-rating-stars"
-                                        src={`images/ratings/rating-${product.rating.stars *10}.png`} />
+                                        src={`images/ratings/rating-${product.rating.stars * 10}.png`} />
                                     <div className="product-rating-count link-primary">
                                         {product.rating.count}
                                     </div>
