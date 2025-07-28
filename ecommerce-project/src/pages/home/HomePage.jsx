@@ -11,10 +11,13 @@ export function HomePage({ cart }) {
 
 
     useEffect(() => {
-        axios.get('/api/products')
-            .then((respose) => {
-                setProducts(respose.data)
-            })
+        const getHomeData = async () => {
+            const response = await axios.get('/api/products')
+
+            setProducts(response.data)
+        }
+
+        getHomeData()
     }, [])
 
 
@@ -25,7 +28,7 @@ export function HomePage({ cart }) {
 
             <Header cart={cart} />
             <div className="home-page">
-                <ProductsGrid products={products}/>
+                <ProductsGrid products={products} />
             </div>
         </>
 
