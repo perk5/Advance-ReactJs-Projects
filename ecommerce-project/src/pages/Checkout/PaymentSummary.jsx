@@ -1,6 +1,7 @@
 import { formatMoney } from '../../utils/money.js'
 
 export function PaymentSummary({ paymentSummary }) {
+    console.log(paymentSummary)
     return (
         <div className="payment-summary">
             <div className="payment-summary-title">

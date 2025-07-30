@@ -2,10 +2,10 @@
 
 import {DeliveryDate} from './DeliveryDate'
 
-export function DeliveryOptions({ deliveryOptions, cartItem }) {
+export function DeliveryOptions({ deliveryOptions, cartItem, loadCart }) {
     return (
         <div className="delivery-options">
-            <DeliveryDate deliveryOptions={deliveryOptions} cartItem={cartItem}/>
+            <DeliveryDate loadCart={loadCart} deliveryOptions={deliveryOptions} cartItem={cartItem}/>
         </div>
     )
 }
