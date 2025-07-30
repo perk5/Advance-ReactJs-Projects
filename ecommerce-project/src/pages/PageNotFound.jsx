@@ -1,7 +1,7 @@
 import { Header } from "../components/Header";
 import './PageNotFound.css'
 
-export function PageNotFound(){
+export function PageNotFound({cart}){
     return (
         <>
             <Header /> 

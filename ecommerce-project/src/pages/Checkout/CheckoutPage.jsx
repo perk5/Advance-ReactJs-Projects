@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import './CheckoutPage.css'
 import { CheckoutHeader } from './CheckoutHeader'
-import {PaymentSummary} from './PaymentSummary'
+import { PaymentSummary } from './PaymentSummary'
 
 import { OrderSummary } from './OrderSummary'
 
@@ -21,23 +21,23 @@ export function Checkout({ cart }) {
             setPaymentSummary(response.data)
 
         }
-        
+
         fetchCheckOutData()
-            
+
     }, [])
 
     return (
         <>
             <title>Checkout</title>
             <link rel="icon" type="image/svg+xml" href="cart-favicon.png" />
-            <CheckoutHeader />
+            <CheckoutHeader cart={cart} />
             <div className="checkout-page">
                 <div className="page-title">Review your order</div>
 
                 <div className="checkout-grid">
-                    <OrderSummary  deliveryOptions={deliveryOptions} cart={cart} />
+                    <OrderSummary deliveryOptions={deliveryOptions} cart={cart} />
 
-                    <PaymentSummary paymentSummary={paymentSummary}/>
+                    <PaymentSummary paymentSummary={paymentSummary} />
                 </div>
             </div>
         </>
