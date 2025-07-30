@@ -54,8 +54,6 @@ export function Tracking({ cart }) {
                             let deliveryPercentage = (timePassedMs / totalDeliveryTimeMs) * 100
                             
 
-                            console.log(deliveryPercentage)
-
                             if(deliveryPercentage > 100){
                                 deliveryPercentage = 100
                             }
