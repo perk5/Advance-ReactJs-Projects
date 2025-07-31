@@ -19,7 +19,6 @@ export function HomePage({ cart, loadCart }) {
             const response = await axios.get(urlPath);
             setProducts(response.data);
         }
-
         getHomeData()
     }, [search])
 
