@@ -3,11 +3,19 @@ import { formatMoney } from '../../utils/money.js'
 import axios from 'axios'
 import CheckMark from '../../assets/images/icons/checkmark.png'
 
-export function Product({ loadCart, product }) {
+export function Product({  product, loadCart }) {
 
     const [quantity, setQuantity] = useState(1)
+    const [ isVisible, setIsVisible ] = useState(false)
 
     const addToCart = async () => {
+
+        setTimeout(() => {
+            setIsVisible(false)
+        }, 2000)
+
+        setIsVisible(true)
+
         await axios.post('/api/cart-items', {
             productId: product.id,
             quantity
@@ -23,7 +31,7 @@ export function Product({ loadCart, product }) {
         <div className="product-container" key={product.id}>
             <div className="product-image-container">
                 <img className="product-image"
-                    src={product.image} />
+                   data-testid="product-image" src={product.image} />
             </div>
 
             <div className="product-name limit-text-to-2-lines">
@@ -32,7 +40,7 @@ export function Product({ loadCart, product }) {
 
             <div className="product-rating-container">
                 <img className="product-rating-stars"
-                    src={`images/ratings/rating-${product.rating.stars * 10}.png`} />
+                    data-testid="rating-image" src={`images/ratings/rating-${product.rating.stars * 10}.png`} />
                 <div className="product-rating-count link-primary">
                     {product.rating.count}
                 </div>
@@ -59,7 +67,7 @@ export function Product({ loadCart, product }) {
 
             <div className="product-spacer"></div>
 
-            <div className="added-to-cart">
+            <div className="added-to-cart" style={{ opacity: isVisible ? 1 : 0 }}>
                 <img src={CheckMark} />
                 Added
             </div>
