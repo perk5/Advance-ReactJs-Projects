@@ -3,7 +3,7 @@ import { formatMoney } from '../../utils/money.js'
 import axios from 'axios'
 import CheckMark from '../../assets/images/icons/checkmark.png'
 
-export function Product({  product, loadCart }) {
+export function Product({ product, loadCart }) {
 
     const [quantity, setQuantity] = useState(1)
     const [ isVisible, setIsVisible ] = useState(false)
@@ -51,7 +51,7 @@ export function Product({  product, loadCart }) {
             </div>
 
             <div className="product-quantity-container">
-                <select value={quantity} onChange={ selectQuantityOption } >
+                <select data-testid="quantitySelector" value={quantity} onChange={ selectQuantityOption } >
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>

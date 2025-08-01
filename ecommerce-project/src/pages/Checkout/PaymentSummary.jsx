@@ -5,9 +5,6 @@ import axios from 'axios'
 export function PaymentSummary({ paymentSummary, loadCart }) {
     const navigate = useNavigate()
 
-
-
-
     const createOrder = async () => {
         await axios.post(`/api/orders`)
 
@@ -23,32 +20,32 @@ export function PaymentSummary({ paymentSummary, loadCart }) {
             </div>
             {paymentSummary &&
                 (<>
-                    <div className="payment-summary-row">
+                    <div  className="payment-summary-row">
                         <div>Items ({paymentSummary.totalItems}):</div>
-                        <div className="payment-summary-money">${formatMoney(paymentSummary.productCostCents)}</div>
+                        <div data-testid="payment-summary-productCostCents" className="payment-summary-money">${formatMoney(paymentSummary.productCostCents)}</div>
                     </div>
 
                     <div className="payment-summary-row">
                         <div>Shipping &amp; handling:</div>
-                        <div className="payment-summary-money">${formatMoney(paymentSummary.shippingCostCents)}</div>
+                        <div data-testid="payment-summary-shippingCostCents" className="payment-summary-money">${formatMoney(paymentSummary.shippingCostCents)}</div>
                     </div>
 
                     <div className="payment-summary-row subtotal-row">
                         <div>Total before tax:</div>
-                        <div className="payment-summary-money">${formatMoney(paymentSummary.taxCents)}</div>
+                        <div data-testid="payment-summary-totalCostBeforeTaxCents" className="payment-summary-money">${formatMoney(paymentSummary.taxCents)}</div>
                     </div>
 
                     <div className="payment-summary-row">
                         <div>Estimated tax (10%):</div>
-                        <div className="payment-summary-money">${formatMoney(paymentSummary.totalCostBeforeTaxCents)}</div>
+                        <div  data-testid="payment-summary-taxCents" className="payment-summary-money">${formatMoney(paymentSummary.totalCostBeforeTaxCents)}</div>
                     </div>
 
                     <div className="payment-summary-row total-row">
                         <div>Order total:</div>
-                        <div className="payment-summary-money">${formatMoney(paymentSummary.totalCostCents)}</div>
+                        <div data-testid="payment-summary-totalCostCents" className="payment-summary-money">${formatMoney(paymentSummary.totalCostCents)}</div>
                     </div>
 
-                    <button onClick={createOrder} className="place-order-button button-primary">
+                    <button data-testid="place-order-button" onClick={createOrder} className="place-order-button button-primary">
                         Place your order
                     </button>
                 </>)
